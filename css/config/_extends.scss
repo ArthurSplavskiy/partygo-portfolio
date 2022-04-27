@@ -1,0 +1,513 @@
+// Шаблоны (заготовки)
+// @extend %имя шаблона;
+// Сниппет (SCSS): ex
+
+// Счетчик для списка
+%listCounter {
+	list-style-type: none;
+	counter-reset: item;
+	li {
+		position: relative;
+		&:before {
+			counter-increment: item;
+			content: "0" counter(item); // "0" - add something
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+}
+// Адаптивное видео
+%responsiveVideo {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+// Видео в качестве фона
+%videoBackground {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+// Серый фильтр
+%grayfilter {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	&:hover {
+		filter: grayscale(0);
+	}
+}
+// Отменить выделение
+%noselect {
+	user-select: none;
+}
+// Зеркальное отображение
+%mirror {
+	transform: scale(-1, 1);
+}
+// Плавный скролл
+%smoothscroll {
+	-webkit-overflow-scrolling: touch;
+}
+// Скрыть скролл
+%hidescroll {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+%flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+%flex-sb {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+%absolute-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+%link-hover {
+	transition: color $defaultTransition;
+
+	&:hover {
+		color: $bazaar;
+	}
+}
+%cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+%text-inherit {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+}
+
+// * * * Fonts
+
+// * 12
+%Montserrat12-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(12);
+	line-height: math.div(16, 12);
+	font-weight: 400;
+}
+%Montserrat12-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(12);
+	line-height: math.div(18, 12);
+	font-weight: 500;
+}
+%Montserrat12-16-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(12);
+	line-height: math.div(14, 12);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(16);
+		line-height: math.div(24, 16);
+	}
+}
+
+// * 14
+%Montserrat14-12-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(14);
+	font-weight: 300;
+	line-height: math.div(24, 14);
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+		line-height: math.div(18, 12);
+	}
+}
+%Montserrat14-12-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(14);
+	line-height: 100%;
+	font-weight: 500;
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+	}
+}
+%Montserrat14-ligth {
+	font-family: $defaultFontFamily;
+	font-size: rem(14);
+	line-height: 100%;
+	font-weight: 300;
+}
+%Montserrat14-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(14);
+	line-height: math.div(24, 14);
+	font-weight: 500;
+}
+%Montserrat14-semibold {
+	font-family: $defaultFontFamily;
+	font-size: rem(14);
+	line-height: 100%;
+	font-weight: 600;
+}
+
+// * 16
+%Montserrat16-10-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(10);
+		line-height: math.div(20, 10);
+	}
+}
+%Montserrat16-12-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+		line-height: math.div(16, 12);
+	}
+}
+%Montserrat16-12-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+		line-height: math.div(20, 12);
+	}
+}
+%Montserrat16-14-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(24, 14);
+	}
+}
+%Montserrat16-14-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(14, 14);
+	}
+}
+%Montserrat16-14-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(28, 16);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(24, 14);
+	}
+}
+%Montserrat16-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	font-weight: 300;
+}
+%Montserrat16-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	font-weight: 400;
+}
+%Montserrat16-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(16);
+	line-height: math.div(24, 16);
+	font-weight: 500;
+}
+
+// * 18
+%Montserrat18-12-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+		line-height: math.div(18, 12);
+	}
+}
+%Montserrat18-12-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 400;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(12);
+		line-height: 100%;
+	}
+}
+%Montserrat18-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 500;
+}
+%Montserrat18-14-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(20, 14);
+	}
+}
+%Montserrat18-16-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(16);
+		line-height: math.div(24, 16);
+	}
+}
+%Montserrat18-16-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(16);
+		line-height: math.div(24, 16);
+	}
+}
+%Montserrat18-regular {
+	font-family: $defaultFontFamily;
+	font-size: rem(18);
+	line-height: math.div(28, 18);
+	font-weight: 400;
+}
+
+// * 24
+%Montserrat20-18-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(20);
+	line-height: 100%;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(18);
+	}
+}
+
+// * 24
+%Montserrat24-14-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(24, 14);
+	}
+}
+%Montserrat24-16-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(16);
+		line-height: 100%
+	}
+}
+%Montserrat24-18-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(24);
+	line-height: math.div(38, 24);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(18);
+		line-height: math.div(28, 18);
+	}
+}
+%Montserrat24-20-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(24);
+	line-height: math.div(32, 24);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(20);
+		line-height: math.div(30, 20);
+	}
+}
+
+// * 32
+%Montserrat32-14-light {
+	font-family: $defaultFontFamily;
+	font-size: rem(32);
+	line-height: math.div(40, 32);
+	font-weight: 300;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(24, 14);
+	}
+}
+
+%Montserrat32-14-medium {
+	font-family: $defaultFontFamily;
+	font-size: rem(32);
+	line-height: math.div(40, 32);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(14);
+		line-height: math.div(24, 14);
+	}
+}
+
+
+
+// * 40
+%Manrope40-24-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(40);
+	line-height: math.div(48, 40);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(24);
+		line-height: math.div(30, 24);
+	}
+}
+
+// * 56
+%Manrope56-20-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(56);
+	line-height: math.div(58, 56);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(20);
+		line-height: 100%;
+	}
+}
+
+%Manrope56-40-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(56);
+	line-height: math.div(58, 56);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(40);
+		line-height: math.div(44, 40);
+	}
+}
+
+// * 70
+%Manrope72-40-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(72);
+	line-height: 100%;
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(40);
+	}
+}
+
+// * 88
+%Manrope88-40-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(88);
+	line-height: math.div(90, 88);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(40);
+		line-height: 100%;
+	}
+}
+
+// * 96
+%Manrope96-56-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(96);
+	line-height: math.div(122, 96);
+	font-weight: 500;
+
+	@media(max-width: $mobileSmall) {
+		font-size: rem(56);
+		line-height: 100%;
+	}
+}
+
+// * 280
+%Manrope280-120-medium {
+	font-family: $manropeFontFamily;
+	font-size: rem(280);
+	font-weight: 500;
+	line-height: 100%;
+
+	@media(max-width: $mobile) {
+		font-size: rem(120);
+	}
+}

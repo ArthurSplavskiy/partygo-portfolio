@@ -1,0 +1,9 @@
+[data-scroll] {
+    transition: all 1s ease;
+    transform: translate3d(0, 40px, 0) scaleY(1.1);
+    opacity: 0;
+    &.is-view {
+        transform: translate3d(0, 0, 0) scaleY(1);
+        opacity: 1;
+    }
+}

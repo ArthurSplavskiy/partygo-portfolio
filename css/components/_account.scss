@@ -1,0 +1,313 @@
+.account-enter {
+    margin-top: rem(64);
+    margin-bottom: rem(200);
+
+    @media(max-width: $mobileSmall) {
+        margin-top: rem(24);
+        margin-bottom: rem(96);
+    }
+
+    &__content {
+        border-top: 1px solid $primary1;
+        padding-top: rem(56);
+        @media(max-width: $mobileSmall) {
+            padding-bottom: rem(24);
+        }
+    }
+    &__body {
+        max-width: rem(592);
+    }
+    &__head {
+        margin-bottom: rem(40);
+        max-width: rem(488);
+        @media(max-width: $mobileSmall) {
+            margin-bottom: rem(24);
+        }
+
+        h3 {
+            @extend %Montserrat24-20-medium;
+            color: $bazaar;
+            margin-bottom: rem(16);
+        }
+        p {
+            @extend %Montserrat14-ligth;
+            line-height: 160%;
+            color: $grey;
+        }
+    }
+}
+
+.account-profile {
+    margin-top: rem(72);
+    margin-bottom: rem(200);
+
+    @media(max-width: $mobileSmall) {
+        margin-top: rem(24);
+        margin-bottom: rem(96);
+    }
+
+    &_edit {
+        .account-profile__title {
+            button {
+                background: $bazaar;
+            }
+            svg path {
+                fill: $white;
+            }
+        }
+        .profile-form__controls {
+            justify-content: flex-start;
+            button, a {
+                min-width: rem(280);
+
+                @media(max-width: $mobileSmall) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @extend %Montserrat24-14-medium;
+        text-transform: uppercase;
+        margin-bottom: rem(24);
+
+        button, a {
+            @extend %flex-center;
+            width: rem(32);
+            height: rem(32);
+            border-radius: 100%;
+            background: $disabled;
+
+            svg, img {
+                max-width: rem(13);
+            }
+
+            @media(min-width: $mobileSmall) {
+                display: none;
+            }
+        }
+    }
+}
+
+.history-order {
+    margin-top: rem(64);
+
+    @media(max-width: $tablet) {
+        margin-top: rem(32);
+    }
+
+    &__head {
+        @extend %Montserrat16-12-light;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(rem(200), rem(280)));
+        gap: rem(32);
+        color: grey;
+        text-transform: uppercase;
+        padding-bottom: rem(20);
+        border-bottom: 1px solid $silver;
+
+        @media(max-width: $tablet) {
+            display: none;
+        }
+    }
+    &__list {
+        @media(min-width: $tablet) {
+            padding-top: rem(40);
+        }
+    }
+    &__item {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(rem(200), rem(280)));
+        gap: rem(32);
+
+        & > div:nth-child(-n+3) {
+            @media(max-width: $tablet) {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        & > div {
+            @media(max-width: $tablet) {
+                border-top: 1px solid $primary1;
+                padding: rem(12) 0;
+            }
+        }
+
+        @media(max-width: $tablet) {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        &:not(:last-child) {
+
+            @media(min-width: $tablet) {
+                border-bottom: 1px solid $silver;
+            }
+            @media(min-width: $mobileSmall) {
+                padding-bottom: rem(40);
+                margin-bottom: rem(40);
+            }
+            @media(max-width: $mobileSmall) {
+                margin-bottom: rem(24);
+            }
+        }
+        &:last-child {
+            .order-item__total:last-child {
+                @media(min-width: $mobileSmall) {
+                    padding-bottom: rem(40);
+                    border-bottom: 1px solid $silver;
+                }
+            }
+        }
+    }
+    &__data {
+        @extend %Montserrat16-14-medium;
+        @media(max-width: $tablet) {
+            line-height: 100%;
+            margin-left: auto;
+        }
+    }
+    &__title {
+        font-size: rem(12);
+        line-height: 100%;
+        text-transform: uppercase;
+        font-weight: 300;
+        color: $grey;
+
+        @media(min-width: $tablet) {
+            display: none;
+        }
+    }
+
+    .order-item {
+
+        .spollers {
+            margin-bottom: rem(8);
+            margin-top: rem(16);
+            @media(max-width: $mobileSmall) {
+                margin-bottom: rem(16);
+            }
+        }
+        .spollers__title {
+            display: flex;
+            align-items: center;
+            margin-bottom: rem(9);
+    
+            &._spoller-active {
+                svg, img {
+                    transform: rotate(-180deg);
+                }
+            }
+    
+            span {
+                font-size: rem(14);
+                line-height: 100%;
+                font-weight: 500;
+                color: $medium-grey;
+            }
+            img, svg {
+                flex: 0 0 rem(12);
+                width: rem(12);
+                margin-left: rem(7);
+                transition: all $defaultTransition;
+            }
+            svg path {
+                fill: $medium-grey;
+            }
+        }
+        .spollers__body {
+            color: $light-grey;
+            padding-left: rem(8);
+    
+            li {
+                display: flex;
+                align-items: center;
+                @extend %Montserrat16-light;
+                &:before {
+                    content: '';
+                    display: flex;
+                    width: rem(2);
+                    height: rem(2);
+                    background: $light-grey;
+                    margin-right: rem(12);
+                }    
+            }
+        }
+        &__price {
+            font-size: rem(14);
+            line-height: 100%;
+            font-weight: 500;
+            text-align: right;
+            &:last-child {
+                padding-bottom: rem(32);
+                border-bottom: 1px solid $silver;
+                margin-bottom: rem(32);
+            }
+        }
+        &__descr {
+            color: $medium-grey;
+            font-size: rem(16);
+            line-height: math.div(28, 16);
+            font-weight: 300;
+            margin: rem(16) 0 rem(8) 0;
+        }
+        &__total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: rem(40);
+            span {
+                &:first-child {
+                    font-size: rem(14);
+                    line-height: 100%;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    color: $light-grey;
+                }
+                &:last-child {
+                    @extend %Montserrat18-medium;
+                }
+            }
+        }
+    }
+}
+
+.favorite-product {
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem(300), 1fr));
+        gap: rem(30);
+
+        @media(max-width: $mobile) {
+            grid-template-columns: repeat(auto-fill, minmax(rem(280), 1fr));
+        }
+
+        .product-card {
+            border-top: 1px solid $primary1;
+            border-bottom: 1px solid $primary1;
+            padding: rem(32) 0;
+            @media(max-width: $mobileSmall) {
+                padding: rem(24) 0;
+            }
+        }
+        .product-card__image-ibg {
+            padding-bottom: 100%;
+            @media(max-width: $mobileSmall) {
+                height: rem(200);
+                padding-bottom: inherit;
+            }
+        }
+        .product-card__body {
+            border: none;
+            padding: rem(16) 0 0 0;
+            @media(max-width: $mobileSmall) {
+                padding: rem(24) 0 0 0;
+            }
+        }
+    }
+}
